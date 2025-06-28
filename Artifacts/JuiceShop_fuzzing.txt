@@ -1,0 +1,88 @@
+[0KRunning with gitlab-runner 18.0.2 (4d7093e1)[0;m
+[0K  on mainRunner bzoxCnA6M, system ID: s_b0fdbdf55a42[0;m
+section_start:1751133556:prepare_executor[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image lv-gitlab.intern.th-ab.de:5050/agilesec2025/team14/juiceshop:a1b81636 ...[0;m
+[0KUsing effective pull policy of [if-not-present] for container lv-gitlab.intern.th-ab.de:5050/agilesec2025/team14/juiceshop:a1b81636[0;m
+[0KUsing locally found image version due to "if-not-present" pull policy[0;m
+[0KUsing docker image sha256:5940c0c3d2c111b9e08d4a1df7392c47cffdcae0b707c0f4ac01f556b284363d for lv-gitlab.intern.th-ab.de:5050/agilesec2025/team14/juiceshop:a1b81636 with digest lv-gitlab.intern.th-ab.de:5050/agilesec2025/team14/juiceshop@sha256:a7ab53203b1433d2cf8e952d27dee2f2846d1ae6df2ea655eaaa645c3d556b62 ...[0;m
+section_end:1751133557:prepare_executor[0Ksection_start:1751133557:prepare_script[0K[0K[36;1mPreparing environment[0;m[0;m
+[0KUsing effective pull policy of [if-not-present] for container sha256:4881aaafed48ed25dfdb326c1a8b65a5720caeab0258d05e5168d327ec30bfc9[0;m
+Running on runner-bzoxcna6m-project-1983-concurrent-0 via sec-gitlab-runner-12...
+section_end:1751133557:prepare_script[0Ksection_start:1751133557:get_sources[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Reinitialized existing Git repository in /builds/agilesec2025/team14/juiceshop/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out a1b81636 as detached HEAD (ref is main)...[0;m
+Removing gitleaks-report.json
+Removing juice-shop-master/build/
+Removing juice-shop-master/frontend/dist/
+Removing juice-shop-master/frontend/node_modules/
+Removing juice-shop-master/node_modules/
+Removing juice-shop-master/reports/
+Removing semgrep-results.json
+Removing trivy-results/
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1751133563:get_sources[0Ksection_start:1751133563:download_artifacts[0K[0K[36;1mDownloading artifacts[0;m[0;m
+[32;1mDownloading artifacts for build_project (171762)...[0;m
+Downloading artifacts from coordinator... ok      [0;m  host[0;m=lv-gitlab.intern.th-ab.de id[0;m=171762 responseStatus[0;m=200 OK token[0;m=64_ZNAmmE
+[32;1mDownloading artifacts for sca_package (170912)...[0;m
+Downloading artifacts from coordinator... ok      [0;m  host[0;m=lv-gitlab.intern.th-ab.de id[0;m=170912 responseStatus[0;m=200 OK token[0;m=64_ZNAmmE
+[32;1mDownloading artifacts for sca_container (170914)...[0;m
+Downloading artifacts from coordinator... ok      [0;m  host[0;m=lv-gitlab.intern.th-ab.de id[0;m=170914 responseStatus[0;m=200 OK token[0;m=64_ZNAmmE
+[32;1mDownloading artifacts for gitleaks_stage (170915)...[0;m
+Downloading artifacts from coordinator... ok      [0;m  host[0;m=lv-gitlab.intern.th-ab.de id[0;m=170915 responseStatus[0;m=200 OK token[0;m=64_ZNAmmE
+[32;1mDownloading artifacts for sast_stage (170916)...[0;m
+Downloading artifacts from coordinator... ok      [0;m  host[0;m=lv-gitlab.intern.th-ab.de id[0;m=170916 responseStatus[0;m=200 OK token[0;m=64_ZNAmmE
+section_end:1751133585:download_artifacts[0Ksection_start:1751133585:step_script[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing effective pull policy of [if-not-present] for container lv-gitlab.intern.th-ab.de:5050/agilesec2025/team14/juiceshop:a1b81636[0;m
+[0KUsing docker image sha256:5940c0c3d2c111b9e08d4a1df7392c47cffdcae0b707c0f4ac01f556b284363d for lv-gitlab.intern.th-ab.de:5050/agilesec2025/team14/juiceshop:a1b81636 with digest lv-gitlab.intern.th-ab.de:5050/agilesec2025/team14/juiceshop@sha256:a7ab53203b1433d2cf8e952d27dee2f2846d1ae6df2ea655eaaa645c3d556b62 ...[0;m
+[32;1m$ cd ./juice-shop-master[0;m
+[32;1m$ echo "fuzzing..."[0;m
+fuzzing...
+[32;1m$ npm install -g jsfuzz[0;m
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+npm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+
+added 183 packages in 13s
+
+24 packages are looking for funding
+  run `npm fund` for details
+[32;1m$ jsfuzz $FUZZING_MODULEPATH corpus || true[0;m
+#0 READ units: 0
+#1 NEW     cov: 63 corp: 2 exec/s: 1 rss: 48.5 MB
+#9227 PULSE     cov: 63 corp: 2 exec/s: 4433 rss: 51.63 MB
+#25150 PULSE     cov: 63 corp: 2 exec/s: 5307 rss: 160.51 MB
+#32246 NEW     cov: 72 corp: 3 exec/s: 6018 rss: 160.63 MB
+#32356 NEW     cov: 94 corp: 4 exec/s: 5500 rss: 160.63 MB
+#32391 NEW     cov: 101 corp: 5 exec/s: 5833 rss: 160.63 MB
+#32543 NEW     cov: 103 corp: 6 exec/s: 4750 rss: 160.63 MB
+#32733 NEW     cov: 104 corp: 7 exec/s: 4750 rss: 160.63 MB
+#32864 NEW     cov: 105 corp: 8 exec/s: 4517 rss: 160.63 MB
+#33014 NEW     cov: 109 corp: 9 exec/s: 4285 rss: 160.63 MB
+#33040 NEW     cov: 114 corp: 10 exec/s: 3714 rss: 160.63 MB
+#33269 NEW     cov: 143 corp: 11 exec/s: 3816 rss: 160.76 MB
+#33315 NEW     cov: 151 corp: 12 exec/s: 1437 rss: 160.76 MB
+#33322 NEW     cov: 155 corp: 13 exec/s: 583 rss: 160.76 MB
+#33360 NEW     cov: 182 corp: 14 exec/s: 4750 rss: 160.76 MB
+#33406 NEW     cov: 186 corp: 15 exec/s: 1769 rss: 160.76 MB
+#33424 PULSE     cov: 186 corp: 15 exec/s: 11 rss: 160.76 MB
+#33424 PULSE     cov: 186 corp: 15 exec/s: 0 rss: 700.11 MB
+#33424 PULSE     cov: 186 corp: 15 exec/s: 0 rss: 1463.11 MB
+#33424 PULSE     cov: 186 corp: 15 exec/s: 0 rss: 1926.74 MB
+MEMORY OOM: exceeded 2048 MB. Killing worker
+Worker killed
+crash was written to crash-e8161f5fa6dd559680236f757840acd06b6a6c3c4d26c524de92373d619dc2a5
+crash(hex)=ffd8ffffffc14e2affffffd8ffffc14e9b
+Worker exited
+section_end:1751133617:step_script[0Ksection_start:1751133617:upload_artifacts_on_success[0K[0K[36;1mUploading artifacts for successful job[0;m[0;m
+[32;1mUploading artifacts...[0;m
+[0;33mWARNING: ./juice-shop-master/report: no matching files. Ensure that the artifact path is relative to the working directory (/builds/agilesec2025/team14/juiceshop)[0;m 
+*/node_modules: found 62428 matching artifact files and directories[0;m 
+./juice-shop-master/corpus: found 15 matching artifact files and directories[0;m 
+untracked: found 113612 files                     [0;m 
+Uploading artifacts as "archive" to coordinator... 201 Created[0;m  id[0;m=170918 responseStatus[0;m=201 Created token[0;m=64_ZNAmmE
+section_end:1751133675:upload_artifacts_on_success[0Ksection_start:1751133675:cleanup_file_variables[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1751133675:cleanup_file_variables[0K[32;1mJob succeeded[0;m

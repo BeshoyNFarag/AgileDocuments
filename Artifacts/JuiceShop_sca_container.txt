@@ -1,0 +1,151 @@
+[0KRunning with gitlab-runner 18.0.2 (4d7093e1)[0;m
+[0K  on mainRunner bzoxCnA6M, system ID: s_b0fdbdf55a42[0;m
+section_start:1751132679:prepare_executor[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image docker:24 ...[0;m
+[0KStarting service docker:24-dind...[0;m
+[0KUsing effective pull policy of [if-not-present] for container docker:24-dind[0;m
+[0KUsing locally found image version due to "if-not-present" pull policy[0;m
+[0KUsing docker image sha256:e31dbb0fb5be21256b536b8650b8a7dc3dcf2f72167c8d486685e272df439e7a for docker:24-dind with digest docker@sha256:9b17a9f25adf17b88d0a013b4f00160754adf4b07ccbe9986664a49886c2c98e ...[0;m
+[0KWaiting for services to be up and running (timeout 30 seconds)...[0;m
+[0KUsing effective pull policy of [if-not-present] for container docker:24[0;m
+[0KUsing locally found image version due to "if-not-present" pull policy[0;m
+[0KUsing docker image sha256:e31dbb0fb5be21256b536b8650b8a7dc3dcf2f72167c8d486685e272df439e7a for docker:24 with digest docker@sha256:9b17a9f25adf17b88d0a013b4f00160754adf4b07ccbe9986664a49886c2c98e ...[0;m
+section_end:1751132698:prepare_executor[0Ksection_start:1751132698:prepare_script[0K[0K[36;1mPreparing environment[0;m[0;m
+[0KUsing effective pull policy of [if-not-present] for container sha256:4881aaafed48ed25dfdb326c1a8b65a5720caeab0258d05e5168d327ec30bfc9[0;m
+Running on runner-bzoxcna6m-project-1983-concurrent-0 via sec-gitlab-runner-12...
+section_end:1751132698:prepare_script[0Ksection_start:1751132698:get_sources[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Reinitialized existing Git repository in /builds/agilesec2025/team14/juiceshop/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out a1b81636 as detached HEAD (ref is main)...[0;m
+Removing juice-shop-master/build/
+Removing juice-shop-master/frontend/dist/
+Removing juice-shop-master/frontend/node_modules/
+Removing juice-shop-master/node_modules/
+Removing juice-shop-master/reports/
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1751132705:get_sources[0Ksection_start:1751132705:step_script[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing effective pull policy of [if-not-present] for container docker:24[0;m
+[0KUsing docker image sha256:e31dbb0fb5be21256b536b8650b8a7dc3dcf2f72167c8d486685e272df439e7a for docker:24 with digest docker@sha256:9b17a9f25adf17b88d0a013b4f00160754adf4b07ccbe9986664a49886c2c98e ...[0;m
+[32;1m$ docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY[0;m
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[32;1m$ echo "Scanning container..."[0;m
+Scanning container...
+[32;1m$ docker pull $UPDATED_IMAGE_TAG[0;m
+a1b81636_UI: Pulling from agilesec2025/team14/juiceshop
+1d7643c81d03: Pulling fs layer
+3b1eb73e9939: Pulling fs layer
+b1b8a0660a31: Pulling fs layer
+48b8862a18fa: Pulling fs layer
+9484c1f5aafd: Pulling fs layer
+443415701344: Pulling fs layer
+b7e85a335497: Pulling fs layer
+e3696f1b575c: Pulling fs layer
+cca08f152f09: Pulling fs layer
+89be7a8cfa05: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+3bebb64c4986: Pulling fs layer
+48b8862a18fa: Waiting
+e3696f1b575c: Waiting
+cca08f152f09: Waiting
+9484c1f5aafd: Waiting
+443415701344: Waiting
+b7e85a335497: Waiting
+3bebb64c4986: Waiting
+89be7a8cfa05: Waiting
+4f4fb700ef54: Waiting
+3b1eb73e9939: Verifying Checksum
+3b1eb73e9939: Download complete
+1d7643c81d03: Verifying Checksum
+1d7643c81d03: Download complete
+9484c1f5aafd: Verifying Checksum
+9484c1f5aafd: Download complete
+b1b8a0660a31: Verifying Checksum
+b1b8a0660a31: Download complete
+b7e85a335497: Verifying Checksum
+b7e85a335497: Download complete
+e3696f1b575c: Verifying Checksum
+e3696f1b575c: Download complete
+cca08f152f09: Verifying Checksum
+cca08f152f09: Download complete
+443415701344: Verifying Checksum
+443415701344: Download complete
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+3bebb64c4986: Verifying Checksum
+3bebb64c4986: Download complete
+48b8862a18fa: Verifying Checksum
+48b8862a18fa: Download complete
+89be7a8cfa05: Verifying Checksum
+89be7a8cfa05: Download complete
+1d7643c81d03: Pull complete
+3b1eb73e9939: Pull complete
+b1b8a0660a31: Pull complete
+48b8862a18fa: Pull complete
+9484c1f5aafd: Pull complete
+443415701344: Pull complete
+b7e85a335497: Pull complete
+e3696f1b575c: Pull complete
+cca08f152f09: Pull complete
+89be7a8cfa05: Pull complete
+4f4fb700ef54: Pull complete
+3bebb64c4986: Pull complete
+Digest: sha256:a18280e1b90e78930e469ff7540e45073b4eaf60588d5d314b76510409890c50
+Status: Downloaded newer image for lv-gitlab.intern.th-ab.de:5050/agilesec2025/team14/juiceshop:a1b81636_UI
+lv-gitlab.intern.th-ab.de:5050/agilesec2025/team14/juiceshop:a1b81636_UI
+[32;1m$ mkdir -p trivy-results[0;m
+[32;1m$ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd)/trivy-results:/output aquasec/trivy:latest image -f json -o /output/results.json --scanners vuln --exit-code 1 --severity HIGH,CRITICAL --ignore-unfixed $UPDATED_IMAGE_TAG || true[0;m
+Unable to find image 'aquasec/trivy:latest' locally
+latest: Pulling from aquasec/trivy
+f18232174bc9: Pulling fs layer
+5b7cbc6c8c5d: Pulling fs layer
+784c8139f6e4: Pulling fs layer
+efc9aecc6d23: Pulling fs layer
+efc9aecc6d23: Waiting
+f18232174bc9: Verifying Checksum
+f18232174bc9: Download complete
+5b7cbc6c8c5d: Verifying Checksum
+5b7cbc6c8c5d: Download complete
+f18232174bc9: Pull complete
+784c8139f6e4: Verifying Checksum
+784c8139f6e4: Download complete
+efc9aecc6d23: Verifying Checksum
+efc9aecc6d23: Download complete
+5b7cbc6c8c5d: Pull complete
+784c8139f6e4: Pull complete
+efc9aecc6d23: Pull complete
+Digest: sha256:6fb0646988fcd2fdf7bf123f7174945ebc2c9c72d1fa1567c8d7daeeb70f8037
+Status: Downloaded newer image for aquasec/trivy:latest
+2025-06-28T17:46:11Z	WARN	[vulndb] Trivy DB may be corrupted and will be re-downloaded. If you manually downloaded DB - use the `--skip-db-update` flag to skip updating DB.
+2025-06-28T17:46:11Z	INFO	[vulndb] Need to update DB
+2025-06-28T17:46:11Z	INFO	[vulndb] Downloading vulnerability DB...
+2025-06-28T17:46:11Z	INFO	[vulndb] Downloading artifact...	repo="mirror.gcr.io/aquasec/trivy-db:2"
+13.26 MiB / 66.31 MiB [------------>________________________________________________] 20.00% ? p/s ?30.86 MiB / 66.31 MiB [---------------------------->________________________________] 46.54% ? p/s ?47.42 MiB / 66.31 MiB [------------------------------------------->_________________] 71.52% ? p/s ?65.28 MiB / 66.31 MiB [----------------------------------------------->] 98.45% 86.70 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 86.70 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 86.70 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 81.22 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 81.22 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 81.22 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 75.98 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 75.98 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 75.98 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 71.08 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 71.08 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 71.08 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 66.49 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 66.49 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [---------------------------------------------->] 100.00% 66.49 MiB p/s ETA 0s66.31 MiB / 66.31 MiB [-------------------------------------------------] 100.00% 19.36 MiB p/s 3.6s2025-06-28T17:46:15Z	INFO	[vulndb] Artifact successfully downloaded	repo="mirror.gcr.io/aquasec/trivy-db:2"
+2025-06-28T17:46:15Z	INFO	[vuln] Vulnerability scanning is enabled
+2025-06-28T17:47:01Z	INFO	[python] Licenses acquired from one or more METADATA files may be subject to additional terms. Use `--debug` flag to see all affected packages.
+2025-06-28T17:47:05Z	INFO	[javadb] Downloading Java DB...
+2025-06-28T17:47:05Z	INFO	[javadb] Downloading artifact...	repo="mirror.gcr.io/aquasec/trivy-java-db:1"
+14.33 MiB / 744.90 MiB [->___________________________________________________________] 1.92% ? p/s ?36.08 MiB / 744.90 MiB [-->__________________________________________________________] 4.84% ? p/s ?57.34 MiB / 744.90 MiB [---->________________________________________________________] 7.70% ? p/s ?79.23 MiB / 744.90 MiB [---->_________________________________________] 10.64% 108.21 MiB p/s ETA 6s100.42 MiB / 744.90 MiB [------>______________________________________] 13.48% 108.21 MiB p/s ETA 5s120.12 MiB / 744.90 MiB [------->_____________________________________] 16.13% 108.21 MiB p/s ETA 5s140.83 MiB / 744.90 MiB [-------->____________________________________] 18.91% 107.85 MiB p/s ETA 5s160.31 MiB / 744.90 MiB [--------->___________________________________] 21.52% 107.85 MiB p/s ETA 5s179.55 MiB / 744.90 MiB [---------->__________________________________] 24.10% 107.85 MiB p/s ETA 5s200.89 MiB / 744.90 MiB [------------>________________________________] 26.97% 107.35 MiB p/s ETA 5s221.37 MiB / 744.90 MiB [------------->_______________________________] 29.72% 107.35 MiB p/s ETA 4s242.22 MiB / 744.90 MiB [-------------->______________________________] 32.52% 107.35 MiB p/s ETA 4s262.22 MiB / 744.90 MiB [--------------->_____________________________] 35.20% 107.02 MiB p/s ETA 4s282.12 MiB / 744.90 MiB [----------------->___________________________] 37.87% 107.02 MiB p/s ETA 4s300.80 MiB / 744.90 MiB [------------------>__________________________] 40.38% 107.02 MiB p/s ETA 4s320.06 MiB / 744.90 MiB [------------------->_________________________] 42.97% 106.32 MiB p/s ETA 3s339.78 MiB / 744.90 MiB [-------------------->________________________] 45.61% 106.32 MiB p/s ETA 3s360.94 MiB / 744.90 MiB [--------------------->_______________________] 48.45% 106.32 MiB p/s ETA 3s382.06 MiB / 744.90 MiB [----------------------->_____________________] 51.29% 106.14 MiB p/s ETA 3s403.02 MiB / 744.90 MiB [------------------------>____________________] 54.10% 106.14 MiB p/s ETA 3s422.48 MiB / 744.90 MiB [------------------------->___________________] 56.72% 106.14 MiB p/s ETA 3s441.80 MiB / 744.90 MiB [-------------------------->__________________] 59.31% 105.72 MiB p/s ETA 2s462.30 MiB / 744.90 MiB [--------------------------->_________________] 62.06% 105.72 MiB p/s ETA 2s482.84 MiB / 744.90 MiB [----------------------------->_______________] 64.82% 105.72 MiB p/s ETA 2s493.06 MiB / 744.90 MiB [----------------------------->_______________] 66.19% 104.40 MiB p/s ETA 2s512.33 MiB / 744.90 MiB [------------------------------>______________] 68.78% 104.40 MiB p/s ETA 2s532.83 MiB / 744.90 MiB [-------------------------------->____________] 71.53% 104.40 MiB p/s ETA 2s553.62 MiB / 744.90 MiB [--------------------------------->___________] 74.32% 104.18 MiB p/s ETA 1s574.61 MiB / 744.90 MiB [---------------------------------->__________] 77.14% 104.18 MiB p/s ETA 1s596.37 MiB / 744.90 MiB [------------------------------------>________] 80.06% 104.18 MiB p/s ETA 1s617.84 MiB / 744.90 MiB [------------------------------------->_______] 82.94% 104.37 MiB p/s ETA 1s639.45 MiB / 744.90 MiB [-------------------------------------->______] 85.84% 104.37 MiB p/s ETA 1s660.67 MiB / 744.90 MiB [--------------------------------------->_____] 88.69% 104.37 MiB p/s ETA 0s681.73 MiB / 744.90 MiB [----------------------------------------->___] 91.52% 104.50 MiB p/s ETA 0s702.59 MiB / 744.90 MiB [------------------------------------------>__] 94.32% 104.50 MiB p/s ETA 0s723.37 MiB / 744.90 MiB [------------------------------------------->_] 97.11% 104.50 MiB p/s ETA 0s743.91 MiB / 744.90 MiB [-------------------------------------------->] 99.87% 104.45 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [------------------------------------------->] 100.00% 104.45 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [------------------------------------------->] 100.00% 104.45 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 97.82 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 97.82 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 97.82 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 91.51 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 91.51 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 91.51 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 85.60 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 85.60 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 85.60 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 80.08 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 80.08 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 80.08 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 74.91 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 74.91 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 74.91 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 70.08 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 70.08 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 70.08 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 65.56 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 65.56 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 65.56 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 61.33 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 61.33 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 61.33 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 57.37 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 57.37 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 57.37 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 53.67 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 53.67 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 53.67 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 50.21 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 50.21 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 50.21 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 46.97 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 46.97 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 46.97 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 43.94 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 43.94 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 43.94 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 41.10 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 41.10 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 41.10 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 38.45 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 38.45 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 38.45 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 35.97 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 35.97 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 35.97 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 33.65 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 33.65 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 33.65 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 31.48 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 31.48 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 31.48 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 29.45 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 29.45 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 29.45 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 27.55 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 27.55 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 27.55 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 25.77 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 25.77 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 25.77 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 24.11 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 24.11 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 24.11 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 22.55 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 22.55 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 22.55 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 21.10 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 21.10 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 21.10 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 19.74 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 19.74 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 19.74 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 18.46 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 18.46 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 18.46 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 17.27 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 17.27 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [-------------------------------------------->] 100.00% 17.27 MiB p/s ETA 0s744.90 MiB / 744.90 MiB [------------------------------------------------] 100.00% 31.27 MiB p/s 24s2025-06-28T17:47:30Z	INFO	[javadb] Artifact successfully downloaded	repo="mirror.gcr.io/aquasec/trivy-java-db:1"
+2025-06-28T17:47:30Z	INFO	[javadb] Java DB is cached for 3 days. If you want to update the database more frequently, "trivy clean --java-db" command clears the DB cache.
+2025-06-28T17:47:30Z	INFO	Detected OS	family="debian" version="12.11"
+2025-06-28T17:47:30Z	INFO	[debian] Detecting vulnerabilities...	os_version="12" pkg_num=413
+2025-06-28T17:47:30Z	INFO	Number of language-specific files	num=4
+2025-06-28T17:47:30Z	INFO	[gobinary] Detecting vulnerabilities...
+2025-06-28T17:47:30Z	INFO	[jar] Detecting vulnerabilities...
+2025-06-28T17:47:30Z	INFO	[node-pkg] Detecting vulnerabilities...
+2025-06-28T17:47:30Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/v0.63/docs/scanner/vulnerability#severity-selection for details.
+section_end:1751132851:step_script[0Ksection_start:1751132851:upload_artifacts_on_success[0K[0K[36;1mUploading artifacts for successful job[0;m[0;m
+[32;1mUploading artifacts...[0;m
+trivy-results/results.json: found 1 matching artifact files and directories[0;m 
+Uploading artifacts as "archive" to coordinator... 201 Created[0;m  id[0;m=170914 responseStatus[0;m=201 Created token[0;m=64_VAo7Ao
+[32;1mUploading artifacts...[0;m
+trivy-results/results.json: found 1 matching artifact files and directories[0;m 
+Uploading artifacts as "dependency_scanning" to coordinator... 201 Created[0;m  id[0;m=170914 responseStatus[0;m=201 Created token[0;m=64_VAo7Ao
+section_end:1751132852:upload_artifacts_on_success[0Ksection_start:1751132852:cleanup_file_variables[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1751132852:cleanup_file_variables[0K[32;1mJob succeeded[0;m

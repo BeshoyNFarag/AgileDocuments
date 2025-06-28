@@ -1,0 +1,368 @@
+[0KRunning with gitlab-runner 18.0.2 (4d7093e1)[0;m
+[0K  on mainRunner bzoxCnA6M, system ID: s_b0fdbdf55a42[0;m
+section_start:1751132300:prepare_executor[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image docker:24 ...[0;m
+[0KStarting service docker:24-dind...[0;m
+[0KUsing effective pull policy of [if-not-present] for container docker:24-dind[0;m
+[0KUsing locally found image version due to "if-not-present" pull policy[0;m
+[0KUsing docker image sha256:e31dbb0fb5be21256b536b8650b8a7dc3dcf2f72167c8d486685e272df439e7a for docker:24-dind with digest docker@sha256:9b17a9f25adf17b88d0a013b4f00160754adf4b07ccbe9986664a49886c2c98e ...[0;m
+[0KWaiting for services to be up and running (timeout 30 seconds)...[0;m
+[0KUsing effective pull policy of [if-not-present] for container docker:24[0;m
+[0KUsing locally found image version due to "if-not-present" pull policy[0;m
+[0KUsing docker image sha256:e31dbb0fb5be21256b536b8650b8a7dc3dcf2f72167c8d486685e272df439e7a for docker:24 with digest docker@sha256:9b17a9f25adf17b88d0a013b4f00160754adf4b07ccbe9986664a49886c2c98e ...[0;m
+section_end:1751132318:prepare_executor[0Ksection_start:1751132318:prepare_script[0K[0K[36;1mPreparing environment[0;m[0;m
+[0KUsing effective pull policy of [if-not-present] for container sha256:4881aaafed48ed25dfdb326c1a8b65a5720caeab0258d05e5168d327ec30bfc9[0;m
+Running on runner-bzoxcna6m-project-1983-concurrent-0 via sec-gitlab-runner-12...
+section_end:1751132318:prepare_script[0Ksection_start:1751132318:get_sources[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Reinitialized existing Git repository in /builds/agilesec2025/team14/juiceshop/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out a1b81636 as detached HEAD (ref is main)...[0;m
+Removing juice-shop-master/audit.json
+Removing juice-shop-master/build/
+Removing juice-shop-master/frontend/dist/
+Removing juice-shop-master/frontend/node_modules/
+Removing juice-shop-master/node_modules/
+Removing juice-shop-master/reports/
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1751132324:get_sources[0Ksection_start:1751132324:download_artifacts[0K[0K[36;1mDownloading artifacts[0;m[0;m
+[32;1mDownloading artifacts for build_project (171762)...[0;m
+Downloading artifacts from coordinator... ok      [0;m  host[0;m=lv-gitlab.intern.th-ab.de id[0;m=171762 responseStatus[0;m=200 OK token[0;m=64_4iv7po
+[32;1mDownloading artifacts for sca_package (170912)...[0;m
+Downloading artifacts from coordinator... ok      [0;m  host[0;m=lv-gitlab.intern.th-ab.de id[0;m=170912 responseStatus[0;m=200 OK token[0;m=64_4iv7po
+section_end:1751132344:download_artifacts[0Ksection_start:1751132344:step_script[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing effective pull policy of [if-not-present] for container docker:24[0;m
+[0KUsing docker image sha256:e31dbb0fb5be21256b536b8650b8a7dc3dcf2f72167c8d486685e272df439e7a for docker:24 with digest docker@sha256:9b17a9f25adf17b88d0a013b4f00160754adf4b07ccbe9986664a49886c2c98e ...[0;m
+[32;1m$ docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY[0;m
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[32;1m$ docker build -t $UPDATED_IMAGE_TAG -f DockerfileUI .[0;m
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from DockerfileUI
+#1 transferring dockerfile: 339B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:20
+#3 DONE 1.5s
+
+#4 [1/6] FROM docker.io/library/node:20@sha256:6a4de97365bb291992222c4f27cafc338773989712259e809632a873ff45a6ff
+#4 resolve docker.io/library/node:20@sha256:6a4de97365bb291992222c4f27cafc338773989712259e809632a873ff45a6ff done
+#4 sha256:6f4b3da500ffcc18d0b041607807dd6d26ded92ffdc86449ebf9ab3fe8eab083 6.42kB / 6.42kB done
+#4 sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec98744017684a 0B / 64.40MB 0.1s
+#4 sha256:6a4de97365bb291992222c4f27cafc338773989712259e809632a873ff45a6ff 6.41kB / 6.41kB done
+#4 sha256:0c01110621e0ec1eded421406c9f117f7ae5486c8f7b0a0d1a37cc7bc9317226 0B / 48.49MB 0.1s
+#4 sha256:3b1eb73e993990490aa137c00e60ff4ca9d1715bafb8e888dbb0986275edb13f 0B / 24.02MB 0.1s
+#4 sha256:bbc2b1ecd95980f303661db98860309d33c8c36c4d2f0d69efd48df2c46f94d6 2.49kB / 2.49kB done
+#4 sha256:0c01110621e0ec1eded421406c9f117f7ae5486c8f7b0a0d1a37cc7bc9317226 6.29MB / 48.49MB 0.3s
+#4 sha256:0c01110621e0ec1eded421406c9f117f7ae5486c8f7b0a0d1a37cc7bc9317226 27.26MB / 48.49MB 0.5s
+#4 sha256:0c01110621e0ec1eded421406c9f117f7ae5486c8f7b0a0d1a37cc7bc9317226 34.60MB / 48.49MB 0.6s
+#4 sha256:3b1eb73e993990490aa137c00e60ff4ca9d1715bafb8e888dbb0986275edb13f 5.24MB / 24.02MB 0.6s
+#4 sha256:0c01110621e0ec1eded421406c9f117f7ae5486c8f7b0a0d1a37cc7bc9317226 47.19MB / 48.49MB 0.8s
+#4 sha256:3b1eb73e993990490aa137c00e60ff4ca9d1715bafb8e888dbb0986275edb13f 13.63MB / 24.02MB 0.8s
+#4 sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec98744017684a 11.53MB / 64.40MB 1.0s
+#4 sha256:0c01110621e0ec1eded421406c9f117f7ae5486c8f7b0a0d1a37cc7bc9317226 48.49MB / 48.49MB 0.9s done
+#4 sha256:3b1eb73e993990490aa137c00e60ff4ca9d1715bafb8e888dbb0986275edb13f 19.92MB / 24.02MB 0.9s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 0B / 211.37MB 1.0s
+#4 extracting sha256:0c01110621e0ec1eded421406c9f117f7ae5486c8f7b0a0d1a37cc7bc9317226
+#4 sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec98744017684a 18.87MB / 64.40MB 1.1s
+#4 sha256:3b1eb73e993990490aa137c00e60ff4ca9d1715bafb8e888dbb0986275edb13f 24.02MB / 24.02MB 1.0s done
+#4 sha256:9484c1f5aafd85a57f5f4673c65061281f487eaa6abfa1c60331beac0433d0a8 0B / 3.33kB 1.1s
+#4 sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec98744017684a 33.55MB / 64.40MB 1.3s
+#4 sha256:9484c1f5aafd85a57f5f4673c65061281f487eaa6abfa1c60331beac0433d0a8 3.33kB / 3.33kB 1.3s done
+#4 sha256:443415701344bc97cda40cfa058a79cfac48ca67a8fb0066eaff125cabe8fbfb 0B / 48.67MB 1.3s
+#4 sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec98744017684a 40.89MB / 64.40MB 1.4s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 12.58MB / 211.37MB 1.4s
+#4 sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec98744017684a 51.38MB / 64.40MB 1.6s
+#4 sha256:443415701344bc97cda40cfa058a79cfac48ca67a8fb0066eaff125cabe8fbfb 4.19MB / 48.67MB 1.6s
+#4 sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec98744017684a 55.57MB / 64.40MB 1.7s
+#4 sha256:443415701344bc97cda40cfa058a79cfac48ca67a8fb0066eaff125cabe8fbfb 9.44MB / 48.67MB 1.7s
+#4 sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec98744017684a 63.96MB / 64.40MB 1.9s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 26.21MB / 211.37MB 1.9s
+#4 sha256:443415701344bc97cda40cfa058a79cfac48ca67a8fb0066eaff125cabe8fbfb 17.83MB / 48.67MB 1.9s
+#4 sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec98744017684a 64.40MB / 64.40MB 2.0s done
+#4 sha256:443415701344bc97cda40cfa058a79cfac48ca67a8fb0066eaff125cabe8fbfb 23.02MB / 48.67MB 2.0s
+#4 sha256:b7e85a335497a2065b28e199433400524c2a2d126e1e62489e0fa27958e8c731 0B / 1.25MB 2.0s
+#4 sha256:443415701344bc97cda40cfa058a79cfac48ca67a8fb0066eaff125cabe8fbfb 37.75MB / 48.67MB 2.2s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 40.89MB / 211.37MB 2.3s
+#4 sha256:443415701344bc97cda40cfa058a79cfac48ca67a8fb0066eaff125cabe8fbfb 42.99MB / 48.67MB 2.3s
+#4 sha256:b7e85a335497a2065b28e199433400524c2a2d126e1e62489e0fa27958e8c731 1.25MB / 1.25MB 2.2s done
+#4 sha256:e3696f1b575c34eb6ed234850ddec88465c764afb66746caecae298d381a2e13 0B / 448B 2.3s
+#4 sha256:443415701344bc97cda40cfa058a79cfac48ca67a8fb0066eaff125cabe8fbfb 48.67MB / 48.67MB 2.4s
+#4 sha256:443415701344bc97cda40cfa058a79cfac48ca67a8fb0066eaff125cabe8fbfb 48.67MB / 48.67MB 2.4s done
+#4 sha256:e3696f1b575c34eb6ed234850ddec88465c764afb66746caecae298d381a2e13 448B / 448B 2.5s done
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 59.77MB / 211.37MB 2.7s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 73.76MB / 211.37MB 2.9s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 90.18MB / 211.37MB 3.1s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 103.81MB / 211.37MB 3.3s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 130.02MB / 211.37MB 3.6s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 145.75MB / 211.37MB 3.8s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 161.48MB / 211.37MB 4.0s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 173.70MB / 211.37MB 4.2s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 188.93MB / 211.37MB 4.4s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 203.10MB / 211.37MB 4.6s
+#4 sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 211.37MB / 211.37MB 5.2s done
+#4 extracting sha256:0c01110621e0ec1eded421406c9f117f7ae5486c8f7b0a0d1a37cc7bc9317226 5.1s
+#4 extracting sha256:0c01110621e0ec1eded421406c9f117f7ae5486c8f7b0a0d1a37cc7bc9317226 8.1s done
+#4 extracting sha256:3b1eb73e993990490aa137c00e60ff4ca9d1715bafb8e888dbb0986275edb13f
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 232.29MB 10.0s
+#5 ...
+
+#4 [1/6] FROM docker.io/library/node:20@sha256:6a4de97365bb291992222c4f27cafc338773989712259e809632a873ff45a6ff
+#4 extracting sha256:3b1eb73e993990490aa137c00e60ff4ca9d1715bafb8e888dbb0986275edb13f 2.4s done
+#4 extracting sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec98744017684a 0.1s
+#4 extracting sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec98744017684a 5.1s
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 426.01MB 18.6s
+#5 transferring context: 551.33MB 23.6s
+#5 transferring context: 656.06MB 28.7s
+#5 ...
+
+#4 [1/6] FROM docker.io/library/node:20@sha256:6a4de97365bb291992222c4f27cafc338773989712259e809632a873ff45a6ff
+#4 extracting sha256:b1b8a0660a31403a35d70b276c3c86b1200b8683e83cd77a92ec98744017684a 9.8s done
+#4 extracting sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 6.3s
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 768.44MB 33.7s
+#5 transferring context: 895.46MB 38.7s
+#5 ...
+
+#4 [1/6] FROM docker.io/library/node:20@sha256:6a4de97365bb291992222c4f27cafc338773989712259e809632a873ff45a6ff
+#4 extracting sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 16.8s
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 963.64MB 41.5s done
+#5 DONE 42.2s
+
+#4 [1/6] FROM docker.io/library/node:20@sha256:6a4de97365bb291992222c4f27cafc338773989712259e809632a873ff45a6ff
+#4 extracting sha256:48b8862a18fa961ebfbac8484877dd4894e96ee88177d8c4f1f54d9727262b7d 21.7s done
+#4 extracting sha256:9484c1f5aafd85a57f5f4673c65061281f487eaa6abfa1c60331beac0433d0a8
+#4 extracting sha256:9484c1f5aafd85a57f5f4673c65061281f487eaa6abfa1c60331beac0433d0a8 done
+#4 extracting sha256:443415701344bc97cda40cfa058a79cfac48ca67a8fb0066eaff125cabe8fbfb 0.1s
+#4 extracting sha256:443415701344bc97cda40cfa058a79cfac48ca67a8fb0066eaff125cabe8fbfb 2.4s done
+#4 extracting sha256:b7e85a335497a2065b28e199433400524c2a2d126e1e62489e0fa27958e8c731
+#4 extracting sha256:b7e85a335497a2065b28e199433400524c2a2d126e1e62489e0fa27958e8c731 0.0s done
+#4 extracting sha256:e3696f1b575c34eb6ed234850ddec88465c764afb66746caecae298d381a2e13 done
+#4 DONE 46.8s
+
+#6 [2/6] WORKDIR /juiceShop/
+#6 DONE 0.1s
+
+#7 [3/6] COPY juice-shop-master ./juice-shop-master/
+#7 DONE 31.2s
+
+#8 [4/6] WORKDIR /juiceShop/juice-shop-master/
+#8 DONE 0.0s
+
+#9 [5/6] RUN npm install
+#9 120.6 
+#9 120.6 > juice-shop@17.3.0 postinstall
+#9 120.6 > cd frontend && npm install --legacy-peer-deps && cd .. && npm run build:frontend && (npm run --silent build:server || cd .)
+#9 120.6 
+#9 123.7 
+#9 123.7 up to date, audited 1573 packages in 3s
+#9 123.7 
+#9 123.7 345 packages are looking for funding
+#9 123.7   run `npm fund` for details
+#9 123.7 
+#9 123.7 19 vulnerabilities (15 moderate, 3 high, 1 critical)
+#9 123.7 
+#9 123.7 To address issues that do not require attention, run:
+#9 123.7   npm audit fix
+#9 123.7 
+#9 123.7 To address all issues (including breaking changes), run:
+#9 123.7   npm audit fix --force
+#9 123.7 
+#9 123.7 Run `npm audit` for details.
+#9 123.9 
+#9 123.9 > juice-shop@17.3.0 build:frontend
+#9 123.9 > cd frontend && npm run build
+#9 123.9 
+#9 124.0 
+#9 124.0 > frontend@17.3.0 build
+#9 124.0 > ng build --configuration production
+#9 124.0 
+#9 126.6 - Generating browser application bundles (phase: setup)...
+#9 151.2 ✔ Browser application bundle generation complete.
+#9 152.1 ✔ Browser application bundle generation complete.
+#9 152.1 - Copying assets...
+#9 152.1 ✔ Copying assets complete.
+#9 152.2 - Generating index html...
+#9 152.5 ✔ Index html generation complete.
+#9 152.5 
+#9 152.5 Initial chunk files | Names                                 |  Raw size | Estimated transfer size
+#9 152.5 vendor.js           | vendor                                |   1.62 MB |               347.42 kB
+#9 152.5 styles.css          | styles                                | 605.94 kB |                25.84 kB
+#9 152.5 main.js             | main                                  | 458.25 kB |                77.48 kB
+#9 152.5 polyfills.js        | polyfills                             |  34.84 kB |                11.38 kB
+#9 152.5 runtime.js          | runtime                               |   3.31 kB |                 1.53 kB
+#9 152.5 
+#9 152.5                     | Initial total                         |   2.72 MB |               463.65 kB
+#9 152.5 
+#9 152.5 Lazy chunk files    | Names                                 |  Raw size | Estimated transfer size
+#9 152.5 989.js              | faucet-faucet-module                  | 463.09 kB |               130.19 kB
+#9 152.5 380.js              | web3-sandbox-web3-sandbox-module      | 426.93 kB |                98.03 kB
+#9 152.5 tutorial.js         | tutorial                              |  36.24 kB |                 9.13 kB
+#9 152.5 300.js              | highlight-js-lib-core                 |  20.72 kB |                 7.53 kB
+#9 152.5 388.js              | faucet-faucet-module                  |  11.84 kB |                 3.65 kB
+#9 152.5 705.js              | confetti                              |  11.12 kB |                 4.02 kB
+#9 152.5 common.js           | common                                |   9.26 kB |               856 bytes
+#9 152.5 108.js              | highlight-js-lib-languages-typescript |   7.77 kB |                 2.77 kB
+#9 152.5 675.js              | wallet-web3-wallet-web3-module        |   7.01 kB |                 2.52 kB
+#9 152.5 236.js              | highlight-js-lib-languages-javascript |   6.52 kB |                 2.36 kB
+#9 152.5 806.js              | highlightjs-line-numbers-js           |   3.49 kB |                 1.40 kB
+#9 152.5 928.js              | highlight-js-lib-languages-yaml       |   1.93 kB |               772 bytes
+#9 152.5 
+#9 152.5 Build at: 2025-06-28T17:42:57.775Z - Hash: 52f4c9de321052d7 - Time: 25272ms
+#9 163.7 
+#9 163.7 up to date, audited 2241 packages in 3m
+#9 163.7 
+#9 163.7 244 packages are looking for funding
+#9 163.7   run `npm fund` for details
+#9 163.7 
+#9 163.7 49 vulnerabilities (1 low, 19 moderate, 21 high, 8 critical)
+#9 163.7 
+#9 163.7 To address issues that do not require attention, run:
+#9 163.7   npm audit fix
+#9 163.7 
+#9 163.7 To address all issues possible (including breaking changes), run:
+#9 163.7   npm audit fix --force
+#9 163.7 
+#9 163.7 Some issues need review, and may require choosing
+#9 163.7 a different dependency.
+#9 163.7 
+#9 163.7 Run `npm audit` for details.
+#9 163.8 npm notice
+#9 163.8 npm notice New major version of npm available! 10.8.2 -> 11.4.2
+#9 163.8 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+#9 163.8 npm notice To update run: npm install -g npm@11.4.2
+#9 163.8 npm notice
+#9 DONE 163.9s
+
+#10 [6/6] WORKDIR /juiceShop/
+#10 DONE 0.0s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 27.9s done
+#11 writing image sha256:6e267ec5bf1bcd8664c3dae6f45c8ae1f3da763d76528ae93cf7fc9a5328330f done
+#11 naming to lv-gitlab.intern.th-ab.de:5050/agilesec2025/team14/juiceshop:a1b81636_UI done
+#11 DONE 27.9s
+[32;1m$ docker info[0;m
+WARNING: API is accessible on http://0.0.0.0:2375 without encryption.
+         Access to the remote API is equivalent to root access on the host. Refer
+         to the 'Docker daemon attack surface' section in the documentation for
+         more information: https://docs.docker.com/go/attack-surface/
+Client:
+ Version:    24.0.9
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.16.2
+    Path:     /usr/local/libexec/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v2.29.1
+    Path:     /usr/local/libexec/docker/cli-plugins/docker-compose
+
+Server:
+ Containers: 0
+  Running: 0
+  Paused: 0
+  Stopped: 0
+ Images: 1
+ Server Version: 24.0.9
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 7c3aca7a610df76212171d200ca3811ff6096eb8
+ runc version: v1.1.12-0-g51d5e94
+ init version: de40ad0
+ Security Options:
+  apparmor
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.8.0-55-generic
+ Operating System: Alpine Linux v3.20 (containerized)
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 2
+ Total Memory: 3.824GiB
+ Name: 909a12a7503b
+ ID: b9c6976d-7572-494d-aff8-9a7881cf9218
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+ Product License: Community Engine
+
+[32;1m$ docker push $UPDATED_IMAGE_TAG[0;m
+The push refers to repository [lv-gitlab.intern.th-ab.de:5050/agilesec2025/team14/juiceshop]
+5f70bf18a086: Preparing
+a387e79e5c72: Preparing
+5f70bf18a086: Preparing
+64341e438a53: Preparing
+3b87569186df: Preparing
+15d72e4a0ee3: Preparing
+e7f7b1a65e61: Preparing
+ec442e8ae8a1: Preparing
+364ae237111e: Preparing
+f9093a7aaa16: Preparing
+1c49688bd8eb: Preparing
+f5b8fb1def00: Preparing
+8f003894a7ef: Preparing
+e7f7b1a65e61: Waiting
+ec442e8ae8a1: Waiting
+364ae237111e: Waiting
+f9093a7aaa16: Waiting
+1c49688bd8eb: Waiting
+f5b8fb1def00: Waiting
+8f003894a7ef: Waiting
+15d72e4a0ee3: Layer already exists
+e7f7b1a65e61: Layer already exists
+ec442e8ae8a1: Layer already exists
+364ae237111e: Layer already exists
+f9093a7aaa16: Layer already exists
+3b87569186df: Pushed
+5f70bf18a086: Pushed
+f5b8fb1def00: Layer already exists
+1c49688bd8eb: Layer already exists
+a387e79e5c72: Pushed
+8f003894a7ef: Pushed
+64341e438a53: Pushed
+a1b81636_UI: digest: sha256:a18280e1b90e78930e469ff7540e45073b4eaf60588d5d314b76510409890c50 size: 3047
+section_end:1751132667:step_script[0Ksection_start:1751132667:cleanup_file_variables[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1751132667:cleanup_file_variables[0K[32;1mJob succeeded[0;m
